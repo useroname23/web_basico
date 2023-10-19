@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>calculadora</title>
+</head>
+<body>
+    
+<h1> calculadora de notas</h1>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: blue;
+            font-style: italic;
+                
+        }
+        h1{
+            content: '\F069E';
+            text-align: center;
+            background-color: white;
+            font-family: Arial, Helvetica, sans-serif
+        
+        }
+        
+        label{
+            background-color: white;
+        }
+        
+        p{
+            color: white; 
+            font-style: normal;
+        }
+
+    </style>
+<form id="gradeCalculator">
+    <label for="nome">Nome completo do aluno</label><p></p>
+    <input type="text" id="nome" required><br><br>
+    
+    <label for="nota1">Nota 1:</label>
+    <input type="number" id="nota1" step="0.01" required><br><br>
+    
+    <label for="nota2">Nota 2:</label>
+    <input type="number" id="nota2" step="0.01" required><br><br>
+    
+    <label for="nota3">Nota 3:</label>
+    <input type="number" id="nota3" step="0.01" required><br><br>
+    
+    <label for="nota4">Nota 4:</label>
+    <input type="number" id="nota4" step="0.01" required><br><br>
+    
+    <button type="button" onclick="calcular()">Calcular nota</button>
+</form>
+
+<p id="resultado"></p>
+
+
+<script>
+    function calcular() {
+        var nome = document.getElementById("nome").value;
+        var nota1 = parseFloat(document.getElementById("nota1").value);
+        var nota2 = parseFloat(document.getElementById("nota2").value);
+        var nota3 = parseFloat(document.getElementById("nota3").value);
+        var nota4 = parseFloat(document.getElementById("nota4").value);
+        
+        var media = (nota1 + nota2 + nota3 + nota4) / 4;
+        
+        var resultado = document.getElementById("resultado");
+        
+        if (media >= 9) {
+            resultado.innerHTML = nome + " foi aprovado com louvor! Média: " + media.toFixed(2);
+        } else if (media >= 6) {
+            resultado.innerHTML = nome + " foi aprovado! Média: " + media.toFixed(2);
+        } else if(media <=5) {
+            resultado.innerHTML = nome + " está reprovado!. Média: " + media.toFixed(2);
+        }
+    }
+</script>
+</body>
+</html>
